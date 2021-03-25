@@ -37,8 +37,7 @@ public class Category implements Serializable {
     @Column(name = "parent_category_id")
     private UUID parentCategoryId;
 
-    @Size(min = 4, max = 4)
-    @Column(name = "mcc", length = 4)
+    @Column(name = "mcc")
     private String mcc;
 
     @Column(name = "icon_url")

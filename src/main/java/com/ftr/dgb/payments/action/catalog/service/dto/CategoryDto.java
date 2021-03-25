@@ -25,7 +25,6 @@ public class CategoryDto implements Serializable {
 
     private UUID parentCategoryId;
 
-    @Size(min = 4, max = 4)
     private String mcc;
 
     private String iconUrl;

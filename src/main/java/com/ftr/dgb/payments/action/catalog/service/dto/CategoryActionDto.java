@@ -29,7 +29,6 @@ public class CategoryActionDto implements Serializable {
     @NotNull
     private UUID categoryId;
 
-    @Size(min = 4, max = 4)
     private String mcc;
 
     private Integer defaultOrderId;

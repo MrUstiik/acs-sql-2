@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface CategoryActionRepository extends JpaRepository<CategoryAction, Long> {
+public interface CategoryActionRepository extends JpaRepository<CategoryAction, Long>, JpaSpecificationExecutor<CategoryAction> {
 }

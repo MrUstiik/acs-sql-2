@@ -3,6 +3,8 @@ package com.ftr.dgb.payments.action.catalog.web.rest;
 import com.ftr.dgb.payments.action.catalog.service.CategoryActionService;
 import com.ftr.dgb.payments.action.catalog.web.rest.errors.BadRequestAlertException;
 import com.ftr.dgb.payments.action.catalog.service.dto.CategoryActionDto;
+import com.ftr.dgb.payments.action.catalog.service.dto.CategoryActionCriteria;
+import com.ftr.dgb.payments.action.catalog.service.CategoryActionQueryService;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -34,8 +36,11 @@ public class CategoryActionResource {
 
     private final CategoryActionService categoryActionService;
 
-    public CategoryActionResource(CategoryActionService categoryActionService) {
+    private final CategoryActionQueryService categoryActionQueryService;
+
+    public CategoryActionResource(CategoryActionService categoryActionService, CategoryActionQueryService categoryActionQueryService) {
         this.categoryActionService = categoryActionService;
+        this.categoryActionQueryService = categoryActionQueryService;
     }
 
     /**
@@ -81,12 +86,26 @@ public class CategoryActionResource {
     /**
      * {@code GET  /category-actions} : get all the categoryActions.
      *
+     * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of categoryActions in body.
      */
     @GetMapping("/category-actions")
-    public List<CategoryActionDto> getAllCategoryActions() {
-        log.debug("REST request to get all CategoryActions");
-        return categoryActionService.findAll();
+    public ResponseEntity<List<CategoryActionDto>> getAllCategoryActions(CategoryActionCriteria criteria) {
+        log.debug("REST request to get CategoryActions by criteria: {}", criteria);
+        List<CategoryActionDto> entityList = categoryActionQueryService.findByCriteria(criteria);
+        return ResponseEntity.ok().body(entityList);
+    }
+
+    /**
+     * {@code GET  /category-actions/count} : count all the categoryActions.
+     *
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
+     */
+    @GetMapping("/category-actions/count")
+    public ResponseEntity<Long> countCategoryActions(CategoryActionCriteria criteria) {
+        log.debug("REST request to count CategoryActions by criteria: {}", criteria);
+        return ResponseEntity.ok().body(categoryActionQueryService.countByCriteria(criteria));
     }
 
     /**
