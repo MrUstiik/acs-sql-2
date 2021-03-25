@@ -16,7 +16,7 @@
     "devDatabaseType": "postgresql",
     "prodDatabaseType": "postgresql",
     "searchEngine": false,
-    "enableSwaggerCodegen": false,
+    "enableSwaggerCodegen": true,
     "messageBroker": false,
     "buildTool": "gradle",
     "useSass": true,

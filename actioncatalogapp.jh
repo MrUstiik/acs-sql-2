@@ -11,12 +11,12 @@ application {
     databaseType sql
     prodDatabaseType postgresql
     devDatabaseType postgresql
-    //enableHibernateCache false
+    enableHibernateCache false
     cacheProvider no
     serviceDiscoveryType no
 
     dtoSuffix Dto
-    enableSwaggerCodegen false
+    enableSwaggerCodegen true
     
     nativeLanguage en
     languages [ua, en, ru]
