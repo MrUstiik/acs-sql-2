@@ -29,13 +29,7 @@
     },
     {
       "fieldName": "mcc",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "minlength",
-        "maxlength"
-      ],
-      "fieldValidateRulesMinlength": "4",
-      "fieldValidateRulesMaxlength": "4"
+      "fieldType": "String"
     },
     {
       "fieldName": "iconUrl",
@@ -75,7 +69,7 @@
   "dto": "mapstruct",
   "pagination": "no",
   "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
+  "jpaMetamodelFiltering": true,
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,

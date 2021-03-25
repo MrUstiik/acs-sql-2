@@ -44,8 +44,7 @@ public class CategoryAction implements Serializable {
     @Column(name = "category_id", nullable = false)
     private UUID categoryId;
 
-    @Size(min = 4, max = 4)
-    @Column(name = "mcc", length = 4)
+    @Column(name = "mcc")
     private String mcc;
 
     @Column(name = "default_order_id")

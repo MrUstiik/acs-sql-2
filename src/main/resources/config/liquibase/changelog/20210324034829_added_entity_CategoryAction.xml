@@ -30,7 +30,7 @@
             <column name="category_id" type="${uuidType}">
                 <constraints nullable="false" />
             </column>
-            <column name="mcc" type="varchar(4)">
+            <column name="mcc" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="default_order_id" type="integer">
